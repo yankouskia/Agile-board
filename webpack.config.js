@@ -1,43 +1,51 @@
-var webpack = require('webpack');
-var extend = require('node.extend');
 var path = require('path');
+var HtmlwebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
+var opener = require('opener');
 
-var production = exports.production = {
-	entry:  {
-		app: [path.resolve(__dirname, 'app/main.js')],
-		vendor: [path.resolve(__dirname, 'app/client/vendor.js')]
-	},
-	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js'
-	},
-	module: {
-		loaders: [
-			{ test: /[\/]angular\.js$/, loader: "exports?angular" },
-			{ test: /\.css$/, loader: 'style!css' },
-			{ test: /\.less$/, loader: 'style!css!less' },
-            { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-            { test: /\.html$/, exclude: /node_modules/, loader: 'html-loader' },
-            { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
-		]
-	},
-	resolve: {
-		extensions: ['', '.js'],
-		modulesDirectories: ['node_modules', 'modules']
-	},	
-	plugins: [
-		new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js"),
-		new webpack.optimize.UglifyJsPlugin()
-		
-	],
-	devtool: 'source-map'			
+var ROOT_PATH = path.resolve(__dirname);
+
+module.exports = {
+  entry: path.resolve(ROOT_PATH, 'app/client'),
+
+  output: {
+    path: path.resolve(ROOT_PATH, 'build'),
+    filename: 'bundle.js'
+  },
+
+  module: {
+    loaders: [
+      { 
+      	test: path.join(__dirname, 'app/client'),
+        loader: 'babel-loader' 
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
+        include: path.resolve(ROOT_PATH, 'app/client')
+      }
+    ]
+  },
+
+  devServer: {
+  	port: 3000,
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    progress: true
+  },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+
+    new HtmlwebpackPlugin({
+      title: 'Agile board'
+    }),
+
+    function () {
+        opener('http://localhost:3000');
+    }
+  ],
+
+  devtool: 'source-map'
 };
-
-
-exports.development = extend({}, production, {
-	plugins: [
-		new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.bundle.js")
-	],
-	watch: true,
-	//devtool: 'enum'
-});
