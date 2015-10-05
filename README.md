@@ -1,0 +1,1 @@
+angular + koa + rethink db
