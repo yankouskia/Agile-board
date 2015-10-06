@@ -1,28 +1,33 @@
 var path = require('path');
-var HtmlwebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var opener = require('opener');
 
 var ROOT_PATH = path.resolve(__dirname);
 
 module.exports = {
-    entry: path.resolve(ROOT_PATH, 'app/client'),
+    entry: {
+        app: path.join(__dirname, './app/client')
+    },
 
     output: {
-        path: path.resolve(ROOT_PATH, 'build/'),
-        filename: 'bundle.js'
+        path: path.join(__dirname, './build'),
+        filename: '[name].bundle.js'
     },
 
     module: {
         loaders: [
             { 
-                test: path.join(__dirname, 'app/client'),
+                test: path.join(__dirname, './app/client'),
                 loader: 'babel-loader' 
             },
             {
                 test: /\.css$/,
                 loaders: ['style', 'css'],
-                include: path.resolve(ROOT_PATH, 'app/client')
+                include: path.join(__dirname, './app/client')
+            },
+            {
+                test: /\.less$/,
+                loader: "style!css!less"
             }
         ]
     },
@@ -37,10 +42,6 @@ module.exports = {
 
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-
-        new HtmlwebpackPlugin({
-            title: 'Agile board'
-        }),
 
         function () {
             opener('http://localhost:3000');
