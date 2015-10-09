@@ -1,7 +1,5 @@
-module.exports = function () {
-  var element = document.createElement('h1');
-
-  element.innerHTML = 'Hello world';
-
+(function () {
+  var element = document.getElementById('unique');
+  console.log(element);
   return element;
-};
+})()

@@ -1,17 +1,17 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-// var opener = require('opener');
 
 module.exports = {
     entry: {
-        app: path.join(__dirname, './app/client')
+        app: [
+                path.join(__dirname, './app/client')
+            ]
     },
 
     output: {
         path: path.join(__dirname, './build'),
-        filename: '[name].bundle.js',
-        chunkFilename: '[name].js'
+        filename: '[name].bundle.js'
     },
 
     module: {
@@ -28,18 +28,22 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.json$/,
+                loader: 'json'
             }
         ]
     },
 
+    resolve: {
+        extensions: ['', '.js', '.json'],
+        modulesDirectories: ['node_modules', 'app']
+    },
+
     plugins: [
         new ExtractTextPlugin('[name].bundle.css'),
-        new webpack.HotModuleReplacementPlugin()/*,
+        new webpack.NoErrorsPlugin()
+    ]
 
-        function () {
-            opener('http://localhost:3000');
-        }*/
-    ],
-
-    devtool: 'source-map'
 };

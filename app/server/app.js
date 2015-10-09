@@ -1,23 +1,31 @@
 var koa = require('koa');
-var route = require('koa-route');
 var app = koa();
+var path = require('path');
+var hbs = require('koa-hbs');
+var router = require('koa-router')();
+var serve = require('koa-static');
+import mount from 'koa-mount';
+import opener from 'opener';
 
-app.use(function *() {
-    this.body = 'Hello world';
-});
 
-app.use(route.get('/api/items', function*() {
-    this.body = 'Get';
+app.use( hbs.middleware({
+      viewPath: __dirname + '/views'
 }));
 
-app.use(route.get('/api/items/:id', function*(id) {
-    this.body = 'Get id: ' + id;
-}));
+app.use(
+	mount('/assets', serve(path.join(__dirname, '../../build')))
+);
 
-app.use(route.post('/api/items', function*() {
-    this.body = 'Post';
-}));
+router.get( '*', function *(next){
+
+      yield this.render('index');
+})
+
+app.use(router.routes()).use(router.allowedMethods());
+
+app.use(serve(__dirname));
 
 var server = app.listen(3000, function() {
     console.log('Koa is listening to http://localhost:3000');
+    opener('http://localhost:3000');
 });
