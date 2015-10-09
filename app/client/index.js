@@ -1,2 +1,2 @@
-require('./app');
-require('./main/styles.less');
+import './main/styles.less';
+import './app';
