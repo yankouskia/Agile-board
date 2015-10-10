@@ -1,2 +1,4 @@
-import './main/styles.less';
+'use strict';
+
+import './styles.less';
 import './app';

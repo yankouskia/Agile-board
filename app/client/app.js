@@ -1,3 +1,5 @@
+'use strict';
+
 import angular from 'angular';
 let ngModule = angular.module('app', []);
 require('./main/hello-world')(ngModule);

@@ -1,3 +1,5 @@
+'use strict';
+
 export default (ngModule) => {
     ngModule.directive('helloWorld', helloWorldFn);
     function helloWorldFn() {

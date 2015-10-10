@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: {
@@ -18,11 +19,11 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style", "css-loader")
+                loader: ExtractTextPlugin.extract("style", "css-loader!postcss")
             },
             {
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract("style", "css-loader!less-loader")
+                loader: ExtractTextPlugin.extract("style", "css-loader!less-loader!postcss")
             },
             {
                 test: /\.js$/,
@@ -36,18 +37,29 @@ module.exports = {
             {
                 test: /\.html$/, 
                 loader: 'raw'
+            },
+            {
+                test: /\.(woff(\?.*)?|woff2(\?.*)?|svg(\?.*)?|ttf(\?.*)?|eot(\?.*)?)$/,
+                loader: 'url?name=fonts/[name].[ext]'
             }
         ]
     },
 
-    resolve: {
-        extensions: ['', '.js', '.json'],
-        modulesDirectories: ['node_modules', 'app']
-    },
+    postcss: [
+        autoprefixer({ browsers: ['last 2 version'] }),
+    ],
 
     plugins: [
-        new ExtractTextPlugin('[name].bundle.css'),
-        new webpack.NoErrorsPlugin()
-    ]
+        new ExtractTextPlugin('[name].bundle.css', {
+            allChunks: true
+        }),
+        new webpack.NoErrorsPlugin(),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        })
+    ],
 
+    resolve: require('./resolve.js')
 };
