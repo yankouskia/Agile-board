@@ -32,12 +32,12 @@
     "koa-route": "^2.4.2",
     "koa-router": "^5.2.3",
     "koa-static": "^1.4.9",
+    "less-loader": "^2.2.1",
     "lodash": "^3.10.1",
     "node-libs-browser": "^0.5.3",
     "opener": "^1.4.1",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.12.4",
-    "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.0"
+    "webpack": "^1.12.2"
   }
 }
