@@ -4,7 +4,8 @@
   "description": "Project in angular, koa, rethink",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --progress --stats --config webpack.config.js && node --harmony \"./app/server\""
+    "start": "webpack --progress --stats --config webpack.config.js && node --harmony \"./app/server\"",
+    "build": "webpack --progress --stats --config webpack.config.js"
   },
   "repository": {
     "type": "git",
