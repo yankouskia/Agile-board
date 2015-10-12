@@ -1,6 +1,10 @@
 import angular from 'angular';
-let ngModule = angular.module('app', []);
-require('./main/hello-world')(ngModule);
 
-let hello = document.createElement('hello-world');
-document.body.appendChild(hello);
+let app = angular.module('app', [])
+	.directive('helloWorld', require('./main/hello-world'));
+
+angular.element(document).ready(() => {
+	angular.bootstrap(document, [app.name]);	
+});
+
+// require('ng-module').name

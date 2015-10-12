@@ -1,15 +1,26 @@
-export default (ngModule) => {
-    ngModule.directive('helloWorld', helloWorldFn);
-    function helloWorldFn() {
-        return {
-            restrict: 'E',
-            scope: {},
-            template: require('./hello-world.html'),
-            controllerAs: 'vm',
-            controller: function () {
-                const vm = this;
-                vm.greeting = 'Hello world';
-            }
+'use strict';
+
+export default () => {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: true,
+        template: require('./hello-world.html'),
+        controllerAs: 'helloWorldCtrl',
+        controller: function () {
+            this.greeting = 'Hello world'; 
         }
     }
-}
+};
+
+
+// module lessons
+
+// link fn change dom like bg color 
+// transclude
+// @, =, &
+// bindToController 
+
+// linter eslint
+// eslint-config-airbnb
+// hotreload
