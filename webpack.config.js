@@ -24,10 +24,10 @@ module.exports = {
                 test: /\.less$/,
                 loader: ExtractTextPlugin.extract("style", "css-loader!less-loader")
             },            
-            {test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
-            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+            {test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
             {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
+            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
             // {   test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/, 
             //     loader: ExtractTextPlugin.extract("style", "url-loader?limit=10000&minetype=application/font-woff") 
             // },

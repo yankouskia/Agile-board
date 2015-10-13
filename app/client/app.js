@@ -1,6 +1,7 @@
 import angular from 'angular';
-let ngModule = angular.module('app', []);
-require('./main/hello-world')(ngModule);
+angular.module('app', []).
+	directive('helloWorld', require('./main/hello-world'));
 
-let hello = document.createElement('hello-world');
-document.body.appendChild(hello);
+angular.element(document).ready(function () {
+    console.log('completed');
+});
