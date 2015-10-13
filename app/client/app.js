@@ -1,7 +1,12 @@
-import angular from 'angular';
-angular.module('app', []).
-	directive('helloWorld', require('./main/hello-world'));
+'use strict';
 
-angular.element(document).ready(function () {
-    console.log('completed');
+import angular from 'angular';
+
+let app = angular.module('app', [])
+	.directive('helloWorld', require('./main/hello-world'));
+
+angular.element(document).ready(() => {
+	angular.bootstrap(document, [app.name]);	
 });
+
+// require('ng-module').name

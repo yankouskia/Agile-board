@@ -1,12 +1,26 @@
+'use strict';
+
 export default () => {
     return {
         restrict: 'E',
-        scope: {},
+        replace: true,
+        scope: true,
         template: require('./hello-world.html'),
-        controllerAs: 'vm',
+        controllerAs: 'helloWorldCtrl',
         controller: function () {
-            const vm = this;
-            vm.greeting = 'Hello world';
+            this.greeting = 'Hello world'; 
         }
     }
-}
+};
+
+
+// module lessons
+
+// link fn change dom like bg color 
+// transclude
+// @, =, &
+// bindToController 
+
+// linter eslint
+// eslint-config-airbnb
+// hotreload
