@@ -17,22 +17,26 @@ module.exports = {
     module: {     
 
         preLoaders: [
-          {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/}
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loaders: ['eslint']
+            }
         ],
 
         loaders: [
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style", "css-loader")
+                loader: ExtractTextPlugin.extract('style', 'css-loader')
             },
             {
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract("style", "css-loader!less-loader")
+                loader: ExtractTextPlugin.extract('style', 'css-loader!less-loader')
             },            
-            {test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+            {test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
+            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
+            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
+            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
