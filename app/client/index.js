@@ -1,2 +1,2 @@
-import './components/main/styles.less';
+import './style.less';
 import './app';

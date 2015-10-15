@@ -8,7 +8,7 @@ export default () => {
         template: require('./hello-world.html'),
         controllerAs: 'helloWorldCtrl',
         controller: function () {
-            this.greeting = 'Hello world'; 
+            this.greeting = 'Agile board'; 
         }
     }
 };

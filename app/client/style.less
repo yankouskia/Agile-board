@@ -1,0 +1,23 @@
+@import "~bootstrap-less/bootstrap/bootstrap.less";
+@import './components/main/styles.less';
+@import './styles/about.less';
+
+.btn {
+	&:active:focus, &:focus {
+		outline: none;
+	}
+}
+
+.btn-default
+{
+	&:active:focus
+	{
+		outline: none;
+		background-color: darken( #fff, 10%);
+	}
+	&:focus
+	{
+		outline: none;
+		background-color: #fff;
+	}
+}

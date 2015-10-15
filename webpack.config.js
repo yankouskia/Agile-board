@@ -57,7 +57,10 @@ module.exports = {
         configFile: './.eslintrc'
     },
 
-    resolve: {
+    resolve: {        
+        alias: {
+            'jquery': 'jquery/src/jquery.js'
+        },
         extensions: ['', '.js', '.json'],
         modulesDirectories: ['node_modules', 'app']
     },
