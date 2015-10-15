@@ -38,7 +38,7 @@ router.get( '*', function *(next){
 
 // app.use(serve(__dirname));
 
-let server = app.listen(3000, function() {
+/*let server = */app.listen(3000, function() {
     console.log('Koa is listening to http://localhost:3000');
     opener('http://localhost:3000');
 });
