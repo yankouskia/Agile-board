@@ -14,7 +14,12 @@ module.exports = {
         filename: '[name].bundle.js'
     },
 
-    module: {
+    module: {     
+
+        preLoaders: [
+          {test: /\.js$/, loader: "eslint-loader", exclude: /node_modules/}
+        ],
+
         loaders: [
             {
                 test: /\.css$/,
@@ -28,13 +33,6 @@ module.exports = {
             {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
             {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
             {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
-            // {   test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/, 
-            //     loader: ExtractTextPlugin.extract("style", "url-loader?limit=10000&minetype=application/font-woff") 
-            // },
-            // { 
-            //     test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
-            //     loader: ExtractTextPlugin.extract("style", "file-loader")
-            // },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -49,6 +47,10 @@ module.exports = {
                 loader: 'raw'
             }
         ]
+    },
+
+    eslint: {
+        configFile: './.eslintrc'
     },
 
     resolve: {

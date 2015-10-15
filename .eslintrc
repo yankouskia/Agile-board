@@ -1,0 +1,36 @@
+{
+	"parser": "babel-eslint",
+	"ecmaFeatures": {
+	    "modules": true,
+	    "blockBindings": true
+  	},
+	"env": {
+		"es6": true,
+		"browser": true,
+		"node": true,
+		"jquery": true
+	},
+
+	"rules": {
+		"quotes": [2, 'single'],
+		"eol-last": [1],
+		"no-mixed-requires": [0],
+		"no-underscore-dangle": [0],
+		"camelcase": [0],
+		"curly": [2, "multi-line"],
+		"no-constant-condition": [1],
+		"no-unused-expressions": [1],
+		"no-unused-vars": [2],
+		"no-new-func": [1],
+		"no-loop-func": [1],
+		"no-process-exit": [1],
+		"new-cap": [0],
+		"no-new": [0],
+		"max-statements": [1, 15],
+		"max-depth": [1, 2],
+		"complexity": [1, 5],
+		"no-extra-bind": [1],
+		"no-undef": 2,
+		"no-unused-vars": 2
+	}
+}

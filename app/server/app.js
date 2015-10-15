@@ -1,3 +1,5 @@
+'use strict';
+
 import koa from 'koa';
 import path from 'path';
 import hbs from 'koa-hbs';
