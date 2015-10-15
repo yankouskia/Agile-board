@@ -1,6 +1,8 @@
 'use strict';
 
 import angular from 'angular';
+import home from './pages/index.html';
+import about from './pages/about.html';
 require('angular-ui-router');
 
 let app = angular.module('app', ['ui.router'])
@@ -10,19 +12,11 @@ let app = angular.module('app', ['ui.router'])
 	    $stateProvider
 			.state('home', {
 				url: '/home',
-				views: {
-	                        main: {
-	                            templateUrl: 'pages/index.html'
-	                        }
-	                    }
+				template: home
 			})
 			.state('about', {
 				url: '/about',
-				views: {
-	                        main: {
-								templateUrl: 'pages/about.html'
-	                        }
-	                    }
+				template: about
 			})
 	}]);
 
