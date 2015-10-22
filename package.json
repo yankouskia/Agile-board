@@ -52,5 +52,8 @@
     "style-loader": "^0.12.4",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.2"
+  },
+  "dependencies": {
+    "rethinkdbdash": "^2.1.11"
   }
 }

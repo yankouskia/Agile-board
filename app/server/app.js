@@ -7,6 +7,26 @@ import serve from 'koa-static';
 import mount from 'koa-mount';
 import opener from 'opener';
 import compose from 'koa-compose';
+// var r = require('rethinkdbdash')({
+//       host: '10.0.2.15',
+//       port: 28015,
+//       authKey: "",
+//       db: 'agiledb'
+// });
+// var r = require('rethinkdb')
+// r.connect({ host: '10.0.2.15', port: 28015 }, function(err, conn) {
+//   if(err) throw err;
+//   r.db('agiledb').tableCreate('tv_shows').run(conn, function(err, res) {
+//     if(err) throw err;
+//     console.log(res);
+//     r.table('tv_shows').insert({ name: 'Star Trek TNG' }).run(conn, function(err, res)
+//     {
+//       if(err) throw err;
+//       console.log(res);
+//     });
+//   });
+// });
+
 let router = require('koa-router')();
 let app = koa();
 
@@ -22,6 +42,13 @@ let appSettings = compose([
 app.use(appSettings);
 
 router.get( '*', function *(next){
+	// try {
+	// 	var result = yield r.table('users').get('orphee@gmail.com').update({name: 'Michel'});
+	// 	console.log(result);
+	// }
+	// catch (e) {
+	// 	console.log(e);
+	// }
 	yield this.render('index');
 })
 
