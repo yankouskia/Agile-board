@@ -54,6 +54,10 @@
     "webpack": "^1.12.2"
   },
   "dependencies": {
+    "amd-define-factory-patcher-loader": "^1.0.0",
+    "angular-ui-sortable": "^0.13.4",
+    "jquery": "^2.1.4",
+    "jquery-ui": "^1.10.5",
     "rethinkdbdash": "^2.1.11"
   }
 }

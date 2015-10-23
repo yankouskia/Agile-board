@@ -25,6 +25,7 @@ module.exports = {
         ],
 
         loaders: [
+            { test: /^jquery\/src/, loader: 'amd-define-factory-patcher-loader' },
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract('style', 'css-loader')
@@ -59,6 +60,7 @@ module.exports = {
 
     resolve: {        
         alias: {
+            '$': 'jquery/src/jquery.js',
             'jquery': 'jquery/src/jquery.js'
         },
         extensions: ['', '.js', '.json'],
