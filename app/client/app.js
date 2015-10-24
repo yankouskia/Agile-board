@@ -1,7 +1,5 @@
 'use strict';
 
-// require('jquery');
-// require('jquery-ui');
 import angular from 'angular';
 import home from './pages/index.html';
 import about from './pages/about.html';
@@ -72,8 +70,8 @@ let app = angular.module('app', ['ui.router', 'ui.sortable'])
 		function createOptions(name) {
 			var options = {
 				name: name,
-			  	placeholder: 'app',
-			  	connectWith: '.apps-container'
+			  	placeholder: 'board__info__container',
+			  	connectWith: '.board__info'
 			};
 			return options;
 		}

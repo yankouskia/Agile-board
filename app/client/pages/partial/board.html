@@ -1,47 +1,47 @@
-	<h3><a href="home/information">Common information</a></h3>
-	<div ng-app="sortableApp" ng-controller="sortableController" class="container mainContent">
-        <div>
-            <div class="navigation">
-                <h3>To Do</h3>
-                <hr>
-            </div>
-            <div ui-sortable="sortableOptionsList[0]" class="apps-container screen infContent" ng-model="tasks[0]">
-                <div ng-repeat="app in tasks[0]" class="information app">
-                	{{$index + 1}} {{app.title}} <p>{{app.description}}
-                    <p>
-                        this is the first
-                    </p>
-                </div>
-            </div>
+<h3><a href="home/information">Common information</a></h3>
+<div ng-app="sortableApp" ng-controller="sortableController" class="board">
+    <div class="board__column">
+        <div class="board__navigation">
+            <h3>To Do</h3>
+            <hr class='board__line'>
         </div>
-        <div>
-            <div class="navigation">
-                <h3>In Progress</h3>
-                <hr>
-            </div>
-            <div ui-sortable="sortableOptionsList[1]" class="apps-container screen infContent" ng-model="tasks[1]">
-                <div ng-repeat="app in tasks[1]" class="information app">
-                	{{$index + 1}} {{app.title}} <p>{{app.description}}
-                    <p>
-                        this is the second
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="navigation">
-                <div>
-                    <h3>Merge</h3>
-                    <hr>
-                </div>
-            </div>
-            <div ui-sortable="sortableOptionsList[2]" class="apps-container screen infContent" ng-model="tasks[2]">
-                <div ng-repeat="app in tasks[2]" class="information app">
-                	{{$index + 1}} {{app.title}} <p>{{app.description}}
-                    <p>
-                        this is the third
-                    </p>
-                </div>
+        <div ui-sortable="sortableOptionsList[0]" class="board__info" ng-model="tasks[0]">
+            <div ng-repeat="app in tasks[0]" class="board__info__container">
+            	{{$index + 1}} {{app.title}} <p>{{app.description}}</p>
+                <p>
+                    this is the first
+                </p>
             </div>
         </div>
     </div>
+    <div class="board__column">
+        <div class="board__navigation">
+            <h3>In Progress</h3>
+            <hr class='board__line'>
+        </div>
+        <div ui-sortable="sortableOptionsList[1]" class="board__info" ng-model="tasks[1]">
+            <div ng-repeat="app in tasks[1]" class="board__info__container">
+            	{{$index + 1}} {{app.title}} <p>{{app.description}}</p>
+                <p>
+                    this is the second
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="board__column">
+        <div class="board__navigation">
+            <div>
+                <h3>Done</h3>
+                <hr class='board__line'>
+            </div>
+        </div>
+        <div ui-sortable="sortableOptionsList[2]" class="board__info" ng-model="tasks[2]">
+            <div ng-repeat="app in tasks[2]" class="board__info__container">
+            	{{$index + 1}} {{app.title}} <p>{{app.description}}</p>
+                <p>
+                    this is the third
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

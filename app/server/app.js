@@ -14,12 +14,12 @@ import compose from 'koa-compose';
 //       db: 'agiledb'
 // });
 // var r = require('rethinkdb')
-// r.connect({ host: '10.0.2.15', port: 28015 }, function(err, conn) {
+// r.connect({ host: 'epbyminw3243.minsk.epam.com', port: 28015 }, function(err, conn) {
 //   if(err) throw err;
-//   r.db('agiledb').tableCreate('tv_shows').run(conn, function(err, res) {
+//   r.db('agiledb').run(conn, function(err, res) {
 //     if(err) throw err;
 //     console.log(res);
-//     r.table('tv_shows').insert({ name: 'Star Trek TNG' }).run(conn, function(err, res)
+//     r.table('users').insert({ name: 'Star Trek TNG' }).run(conn, function(err, res)
 //     {
 //       if(err) throw err;
 //       console.log(res);

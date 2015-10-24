@@ -1,72 +1,54 @@
-
-* {
-    text-decoration: none;
-}
-
-body,
-html {
-    background: #ffffff;
-}
-
 .wrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
-.footer,
-.header{
-    flex:0 0 100%;
-    padding:5px;
-    background-color: #9d8e72;
-    text-align:start;
+
+.footer, .header{
+    flex: 0 0 100%; 
+    background-color: lightblue;
+    text-align: start;
 }
-.mainContent {
+
+.board {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.mainContent div {
+.board-column {
+    height: 100%;
+}
+
+.board__column {
     flex-basis: 33%;
     margin-right: 10px;
     align: center;
 }
-.mainContent div:last-child {
-    margin-right: 0px;
-}
-.mainContent .infContent {
-    background-color: #f5f5f5;
-}
-.navigation {
+
+.board__navigation {
 	vertical-align: top;
 }
-.navigation p,
-.navigation h3{
-    color: #333333;
-    display: inline-block;
-    font-size: 16px;
-    font-style: italic;
-}
-.navigation a {
-   font-size: 16px;
-   color: #747070;
-}
-hr {
+
+.board__line {
     border: none;
-    background-color: #f5f5f5;
-    color: #f5f5f5;
+    background-color: lightgrey;
+    color: lightgrey;
     width: 100%;
     height: 5px;
-    margin: 10px 0 30px 0;
+    margin: 10px 0 20px 0;
     border-radius:20%;
 }
-.infContent {
+
+.board__info {
     width: 100%;
     min-height: 300px;
     border: 2px solid #747070;
     border-radius: 5px;
 }
-.information {
+
+.board__info__container {
     width: 98%;
+    min-height: 50px;
     height: 100px;
     overflow-y: hidden;
     background: gainsboro;
@@ -76,25 +58,17 @@ hr {
     border-left-width: 3px;
     margin: 5px 0;
 }
-.wrapper:last-child {
-    margin-bottom:0;
-}
 
 
-.apps-container {
-	// border: 2px dashed blue;
-	// margin: 10px 10px 0 0;
-	// padding: 5px;
-}
+// .app {
+// 	padding: 5px 10px;
+// 	margin: 5px 0;
+// 	border: 2px solid #444;
+// 	border-radius: 5px;
+// 	background-color: #EA8A8A;
 
-.app {
-	padding: 5px 10px;
-	margin: 5px 0;
-	border: 2px solid #444;
-	border-radius: 5px;
-	background-color: #EA8A8A;
+// 	font-weight: bold;
+// 	text-align: center;
+// 	cursor: move;
+// }
 
-	font-weight: bold;
-	text-align: center;
-	cursor: move;
-}
