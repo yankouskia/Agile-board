@@ -7,6 +7,7 @@ import serve from 'koa-static';
 import mount from 'koa-mount';
 import opener from 'opener';
 import compose from 'koa-compose';
+var favicon = require('koa-favicon');
 // var r = require('rethinkdbdash')({
 //       host: '10.0.2.15',
 //       port: 28015,
@@ -32,6 +33,7 @@ let app = koa();
 
 
 let appSettings = compose([
+	favicon(__dirname + '/views/favicon/fav.ico'),
 	hbs.middleware({ viewPath: __dirname + '/views' }),
 	mount('/assets', serve(path.join(__dirname, '../../build'))),
 	router.routes(),
