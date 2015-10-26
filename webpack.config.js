@@ -5,8 +5,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     entry: {
         app: [
-                path.join(__dirname, './app/client')
-            ]
+            path.join(__dirname, './app/client')
+        ]
     },
 
     output: {
@@ -49,8 +49,10 @@ module.exports = {
             },
             {
                 test: /\.html$/, 
-                loader: 'raw'
+                loader: 'raw'  
             }
+
+            // ngannataite 
         ]
     },
 

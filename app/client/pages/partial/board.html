@@ -7,10 +7,15 @@
         </div>
         <div ui-sortable="sortableOptionsList[0]" class="board__info" ng-model="tasks[0]">
             <div ng-repeat="app in tasks[0]" class="board__info__container">
-            	{{$index + 1}} {{app.title}} <p>{{app.description}}</p>
-                <p>
-                    this is the first
-                </p>
+                <p class="board__info__container__priority">Priority: {{$index + 1}}</p>
+                <div class="section">
+                    <p class="board__info__container__name">Name: {{app.title}}</p>
+                    <p class="board__info__container__description">Description: {{app.description}}</p>                   
+                </div>
+                <div class="section">
+                    <p class="board__info__container__person">Person: Alex</p>
+                    <p class="board__info__container__points">5</p>                    
+                </div>
             </div>
         </div>
     </div>
