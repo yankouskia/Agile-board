@@ -10,7 +10,7 @@ require('angular-ui-sortable');
 
 let app = angular.module('app', ['ui.router', 'ui.sortable'])
 	.directive('helloWorld', require('./components/main/hello-world'))
-	.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', function($urlRouterProvider, $stateProvider, $locationProvider) {
+	.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 	    $locationProvider.html5Mode(true);
 	    $urlRouterProvider.otherwise('/home/board');
 	    $stateProvider
@@ -30,7 +30,7 @@ let app = angular.module('app', ['ui.router', 'ui.sortable'])
 				url: '/information',
 				template: information
 			});		
-	}])
+	})
 	.controller('sortableController', function ($scope) {  
 		$scope.tasks = [
 			[
