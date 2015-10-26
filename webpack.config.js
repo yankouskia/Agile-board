@@ -1,6 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -69,7 +70,10 @@ module.exports = {
 
     plugins: [
         new ExtractTextPlugin('[name].bundle.css'),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin(),
+        new ngAnnotatePlugin({
+            add: true
+        })
     ]
 
 };
