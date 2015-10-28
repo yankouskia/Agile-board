@@ -4,6 +4,7 @@ import angular from 'angular';
 import home from './pages/index.html';
 import about from './pages/about.html';
 import board from './pages/partial/board.html';
+import auth from './pages/auth.html';
 import information from './pages/partial/information.html';
 require('angular-ui-router');
 require('angular-ui-sortable');
@@ -12,6 +13,8 @@ require('angular-ui-sortable');
 
 let app = angular.module('app', ['ui.router', 'ui.sortable'])
 	.directive('helloWorld', require('./components/main/hello-world'))
+	.directive('boardHeader', require('./components/board-header'))
+	.directive('boardFooter', require('./components/board-footer'))
 	.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 	    $locationProvider.html5Mode(true);
 	    $urlRouterProvider.otherwise('/home/board');
@@ -19,11 +22,15 @@ let app = angular.module('app', ['ui.router', 'ui.sortable'])
 	    $stateProvider // move to router module like app.router.js
 			.state('home', {
 				url: '/home',
-				template: require('./pages/index.html')  //should be directives like components in React
+				template: home  //should be directives like components in React
 			})
 			.state('about', {
 				url: '/about',
 				template: about
+			})
+			.state('auth', {
+				url: '/auth',
+				template: auth
 			})
 			.state('home.board', {
 				url: '/board',
