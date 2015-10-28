@@ -4,35 +4,45 @@ import angular from 'angular';
 import home from './pages/index.html';
 import about from './pages/about.html';
 import board from './pages/partial/board.html';
+import auth from './pages/auth.html';
 import information from './pages/partial/information.html';
 require('angular-ui-router');
 require('angular-ui-sortable');
 
+
+
 let app = angular.module('app', ['ui.router', 'ui.sortable'])
 	.directive('helloWorld', require('./components/main/hello-world'))
+	.directive('boardHeader', require('./components/board-header'))
+	.directive('boardFooter', require('./components/board-footer'))
 	.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 	    $locationProvider.html5Mode(true);
 	    $urlRouterProvider.otherwise('/home/board');
-	    $stateProvider
+
+	    $stateProvider // move to router module like app.router.js
 			.state('home', {
 				url: '/home',
-				template: home
+				template: home  //should be directives like components in React
 			})
 			.state('about', {
 				url: '/about',
 				template: about
 			})
+			.state('auth', {
+				url: '/auth',
+				template: auth
+			})
 			.state('home.board', {
 				url: '/board',
-				template: board
+				template: board //split into small reausable directives
 			})
 			.state('home.information', {
 				url: '/information',
 				template: information
 			});		
 	})
-	.controller('sortableController', function ($scope) {  
-		$scope.tasks = [
+	.controller('sortableController', function ($scope) {  // value provider  // remove this shit
+		$scope.tasks = [ // don't use scope. prefer controller as syntax. Why ?
 			[
 				{
 				  	title: 'Control mask',
@@ -76,8 +86,8 @@ let app = angular.module('app', ['ui.router', 'ui.sortable'])
 			return options;
 		}
 
-  		$scope.sortableOptionsList = [createOptions('A'), createOptions('B'), createOptions('C')];
-  
+  		$scope.sortableOptionsList = [createOptions('A'), createOptions('B'), createOptions('C')]; // move to constants or value or service
+   
 		$scope.logModels = function () {
 			$scope.sortingLog = [];
 			for (var i = 0; i < $scope.tasks.length; i++) {

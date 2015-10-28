@@ -8,7 +8,7 @@
     "start": "webpack --progress --stats --config webpack.config.js && node --harmony \"./app/server\"",
     "serve": "node --harmony \"./app/server\"",
     "lint": "eslint -c .eslintrc .",
-    "build": "webpack --progress --stats --config webpack.config.js"
+    "build": "webpack --config webpack.config.js --watch"
   },
   "repository": {
     "type": "git",
