@@ -23,86 +23,44 @@ body {
     height: 30px;
     background-color: #f5f5f5;
 }
-
-.header{
-    flex: 0 0 100%; 
-    background-color: lightblue;
-    text-align: start;
-}
-
 // board.less
 
-.board {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.board-column {
-    height: 100%;
-}
-
-.board__column {
-    flex-basis: 33%;
-    margin-right: 10px;
-    align: center;
+[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #eee;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(86,61,124,.2);
 }
 
-.board__navigation {
-	vertical-align: top;
+.list-group {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-right: 15px;
+  background-color: #eee;
+  border: none;
+  a {
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  }
 }
 
-.board__line {
-    border: none;
-    background-color: lightgrey;
-    color: lightgrey;
-    width: 100%;
-    height: 5px;
-    margin: 10px 0 20px 0;
-    border-radius:20%;
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
 }
 
 .board__info {
     width: 100%;
-    min-height: 300px;
-    border: 2px solid #747070;
-    border-radius: 5px;
+    min-height: 100px;
 }
 
 .board__info__container {
-    width: 98%;
-    min-height: 50px;
-    height: 100px;
+    min-height: 100px;
     overflow-y: hidden;
-    background: gainsboro;
-    border: 2px solid #747070;
-    border-left-color: #dd3024;
-    border-left-style: solid;
-    border-left-width: 3px;
-    margin: 5px 0;
+    border: 1px outset;
 }
-
-.board__info__container__points {
-    width:20px;
-    height:20px;
-    display:block;
-    border-radius:10px;
-    font-size:10px; 
-    color:#fff;
-    line-height:20px;
-    text-align:center;
-    background:#000;
-}
-
-
-// .app {
-// 	padding: 5px 10px;
-// 	margin: 5px 0;
-// 	border: 2px solid #444;
-// 	border-radius: 5px;
-// 	background-color: #EA8A8A;
-
-// 	font-weight: bold;
-// 	text-align: center;
-// 	cursor: move;
-// }
-

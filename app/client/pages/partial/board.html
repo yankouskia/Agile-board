@@ -1,30 +1,26 @@
-<div ng-app="sortableApp" ng-controller="sortableController" class="board">
-    <div class="board__column">
+<div ng-app="sortableApp" ng-controller="sortableController" class="row row-eq-height">
+    <div class="col-xs-3">
         <div class="board__navigation">
             <h3>To Do</h3>
             <hr class='board__line'>
         </div>
         <div ui-sortable="sortableOptionsList[0]" class="board__info" ng-model="tasks[0]">
-            <div ng-repeat="app in tasks[0]" class="board__info__container">
+            <div ng-repeat="app in tasks[0]" class="board__info__container col-xs-12">
                 <p class="board__info__container__priority">Priority: {{$index + 1}}</p>
                 <div class="section">
-                    <p class="board__info__container__name">Name: {{app.title}}</p>
-                    <p class="board__info__container__description">Description: {{app.description}}</p>                   
-                </div>
-                <div class="section">
-                    <p class="board__info__container__person">Person: Alex</p>
-                    <p class="board__info__container__points">5</p>                    
+                    <p>Name: {{app.title}}</p>
+                    <p>Description: {{app.description}}</p>                   
                 </div>
             </div>
         </div>
     </div>
-    <div class="board__column">
+    <div class="col-xs-3">
         <div class="board__navigation">
             <h3>In Progress</h3>
             <hr class='board__line'>
         </div>
         <div ui-sortable="sortableOptionsList[1]" class="board__info" ng-model="tasks[1]">
-            <div ng-repeat="app in tasks[1]" class="board__info__container">
+            <div ng-repeat="app in tasks[1]" class="board__info__container col-xs-12">
             	{{$index + 1}} {{app.title}} <p>{{app.description}}</p>
                 <p>
                     this is the second
@@ -32,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="board__column">
+    <div class="col-xs-3">
         <div class="board__navigation">
             <div>
                 <h3>Done</h3>
@@ -40,12 +36,20 @@
             </div>
         </div>
         <div ui-sortable="sortableOptionsList[2]" class="board__info" ng-model="tasks[2]">
-            <div ng-repeat="app in tasks[2]" class="board__info__container">
+            <div ng-repeat="app in tasks[2]" class="board__info__container col-xs-12">
             	{{$index + 1}} {{app.title}} <p>{{app.description}}</p>
                 <p>
                     this is the third
                 </p>
             </div>
         </div>
+    </div>
+    <div class="col-xs-2 col-xs-offset-1 list-group">
+        <a href="#" class="list-group-item">Story 1: Poach DB</a>
+        <a href="#" class="list-group-item">Story 2: Bootstrap 3</a>
+        <a href="#" class="list-group-item">Story 3: Pages</a>
+        <a href="#" class="list-group-item">Story 4: koa server</a>
+        <a href="#" class="list-group-item">Story 5: Directive</a>
+        <a href="#" class="list-group-item">Story 6: Template</a>
     </div>
 </div>
