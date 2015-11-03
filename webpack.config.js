@@ -10,6 +10,10 @@ module.exports = {
         ]
     },
 
+    node: {
+      __dirname: true,
+    },
+
     output: {
         path: path.join(__dirname, './build'),
         filename: '[name].bundle.js'
@@ -72,6 +76,7 @@ module.exports = {
 
     plugins: [
         new ExtractTextPlugin('[name].bundle.css'),
+        new webpack.DefinePlugin({ "global.GENTLY": false }),
         new webpack.NoErrorsPlugin(),
         new ngAnnotatePlugin({
             add: true

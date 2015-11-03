@@ -56,11 +56,22 @@ body {
 
 .board__info {
     width: 100%;
-    min-height: 100px;
+    height: 100px;
 }
 
 .board__info__container {
-    min-height: 100px;
+    height: 100px;
     overflow-y: hidden;
     border: 1px outset;
+    p {
+      white-space: nowrap;
+      overflow: hidden; 
+      text-overflow: ellipsis;
+    }
+}
+
+.board___navigation__name {
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis;
 }
