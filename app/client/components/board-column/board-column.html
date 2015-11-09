@@ -1,0 +1,11 @@
+<div>
+	<div class="board__navigation">
+        <h3 class="board___navigation__name">{{::bcCtrl.title}}</h3>
+        <hr class='board__line'>
+    </div>
+    <div ui-sortable="bcCtrl.options" class="board__info" ng-model="bcCtrl.tasks">
+        <div ng-repeat="task in bcCtrl.tasks" class="board__info__container col-xs-12">
+        	<task task="task" index="$index"></task>
+        </div>
+    </div>
+</div>

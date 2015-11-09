@@ -34,7 +34,37 @@ export default function ($scope) {  // value provider  // remove this shit
 		]
 	];  
 
-		$scope.sortingLog = [];
+	$scope.columns = [
+		{
+			title: 'To Do',
+			options: createOptions('todo'),
+
+			tasks: [
+				{
+			  		title: 'Control mask',
+			  		description: 'implement mask control'
+				}, 
+				{
+			  		title: 'router ui',
+			  		description: 'add view route'
+				}
+
+			]
+		},
+		{
+			title: 'In Progress',
+			options: createOptions('progress'),
+			tasks: []
+		},
+		{
+			title: 'Done',
+			options: createOptions('done'),
+			tasks: []
+		}
+
+	]
+
+	$scope.sortingLog = [];
 
 	function createOptions(name) {
 		var options = {

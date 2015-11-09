@@ -26,7 +26,7 @@ export default class DBConnection {
 
 	addTask(task) {
 		task._id = task.name.toLowerCase().replace(/\s/g, '');
-		localDB.put(task).then(function (response) {
+		this.remoteDB.put(task).then(function (response) {
 		 	return response;
 		}).catch(function (err) {
 		 	return error;
@@ -35,7 +35,7 @@ export default class DBConnection {
 
 	getTaskById(id) {
 		// var task = null;
-		return this.localDB.get(id).then((res)=>{return res});
+		return this.remoteDB.get(id).then((res)=>{return res});
 
 		// .then(function (doc) {
 		// 	console.log('gettttt', doc);

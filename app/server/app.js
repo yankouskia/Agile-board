@@ -15,6 +15,7 @@ var favicon = require('koa-favicon');
 let router = require('koa-router')();
 let app = koa();
 
+import db from './db/requests';
 
 let appSettings = compose([
 	favicon(__dirname + '/views/favicon/fav.ico'),
@@ -31,8 +32,10 @@ router.get( '*', function *(next){
 	yield this.render('index');
 })
 
+var connectionDb = new db();
+
 app.server = http.createServer(app.callback()).listen(3000);
 const io = require('socket.io')(app.server);
-socketWrapper(io);
+socketWrapper(io, connectionDb);
 
 opener('http://localhost:3000');
