@@ -1,5 +1,6 @@
 'use strict';
 import _ from 'lodash';
+import {DB_CHANGE} from 'shared/socketEventTypes';
 
 export default (socket) => {
     return {
@@ -13,7 +14,7 @@ export default (socket) => {
         },
         link: function($scope) {
             $scope.clickMe = async () => {
-                socket.on('db change', async (data) => {
+                socket.on(DB_CHANGE, async (data) => {
                     console.log('db change!!!!!!!!', data);
                     var requestTemplate = '/task/getAll/';
                     var ans = await fetch(requestTemplate)

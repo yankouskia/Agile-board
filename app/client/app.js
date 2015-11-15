@@ -22,9 +22,6 @@ import SortableCtrl from 'client/controllers/SortableController';
 //config
 import config from 'client/config/config';
 
-import n from 'shared/num';
-console.log(n);
-
 let app = angular.module('app', ['ui.router', 'ui.sortable', 'ngDialog'])
 	.factory('socket', socketFactory)
 	.directive('tasksList', tasksList)
