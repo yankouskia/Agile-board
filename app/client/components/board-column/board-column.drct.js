@@ -16,7 +16,7 @@ export default () => {
 		replace: true,
 		template: require('./board-column.html'),
 		controller: BoardColumnCtrl,
-		controllerAs: 'bcCtrl',
+		controllerAs: 'BoardColumnCtrl',
 		bindToController: {
 			column: '=column'
 		}

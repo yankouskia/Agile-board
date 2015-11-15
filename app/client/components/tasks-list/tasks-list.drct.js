@@ -2,7 +2,7 @@
 
 export default () => {
 	
-	let tasksListCtrl = function() {
+	let TasksListCtrl = function() {
 		this.tasks = ((cols) => {
 			let tasks = [];
 			cols.forEach((col) => {
@@ -18,8 +18,8 @@ export default () => {
 		restrict: 'E',
 		replace: true,
 		template: require('./tasks-list.html'),
-		controller: tasksListCtrl,
-		controllerAs: 'tasksListCtrl',
+		controller: TasksListCtrl,
+		controllerAs: 'TasksListCtrl',
 		bindToController: {
 			columns: '=columns'
 		}

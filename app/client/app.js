@@ -17,7 +17,7 @@ import boardFooter from 'client/components/board-footer';
 import socketFactory from 'client/factories/socket'
 
 //controllers
-import sortableController from 'client/controllers/sortableController';
+import SortableCtrl from 'client/controllers/SortableController';
 
 //config
 import config from 'client/config/config';
@@ -33,7 +33,7 @@ let app = angular.module('app', ['ui.router', 'ui.sortable', 'ngDialog'])
 	.directive('boardHeader', boardHeader)
 	.directive('boardFooter', boardFooter)
 	.directive('boardColumn', require('client/components/board-column/board-column.drct'))
-	.controller('sortableController', sortableController)
+	.controller('SortableCtrl', SortableCtrl)
 	.config(config);
 
 angular.element(document).ready(() => {

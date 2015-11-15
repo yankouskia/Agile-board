@@ -2,7 +2,7 @@
 
 export default (socket) => {
 
-    let taskCtrl = function() {
+    let TaskCtrl = function() {
         let {description, title} = this.task;
         this.description = description;
         this.title = title;
@@ -14,8 +14,8 @@ export default (socket) => {
         replace: true,
         scope: {},
         template: require('./task.html'),
-        controllerAs: 'taskCtrl',
-        controller: taskCtrl,
+        controllerAs: 'TaskCtrl',
+        controller: TaskCtrl,
         bindToController: {
             task: '=task',
             index: '=index'

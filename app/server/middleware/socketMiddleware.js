@@ -2,7 +2,7 @@
 
 export default (io, db) => {
 	io.on('connection', (socket) => {
-		console.log('socket instance', 'connected on server');
+		console.log('socket instance connected on server');
 		db.remoteDB.changes({
 			since: 'now',
 			live: true,
