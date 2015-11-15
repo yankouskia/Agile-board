@@ -8,15 +8,20 @@ import serve from 'koa-static';
 import mount from 'koa-mount';
 import opener from 'opener';
 import compose from 'koa-compose';
+import favicon from 'koa-favicon';
 
+import routerHandler from './api/routes';
+import connectionDb from './db/requests';
 import socketWrapper from './middleware/socketMiddleware';
-var favicon = require('koa-favicon');
+
+// server logs on client
+require('node-monkey').start({host: "127.0.0.1", port:"50500"});
 
 let router = require('koa-router')();
 let app = koa();
 
-import db from './db/requests';
 
+//server seetings
 let appSettings = compose([
 	favicon(__dirname + '/views/favicon/fav.ico'),
 	hbs.middleware({ viewPath: __dirname + '/views' }),
@@ -28,13 +33,18 @@ let appSettings = compose([
 
 app.use(appSettings);
 
-router.get( '*', function *(next){
+// REST
+routerHandler(router);
+
+// first render
+router.get('*', function *(next){
 	yield this.render('index');
 })
 
-var connectionDb = new db();
 
 app.server = http.createServer(app.callback()).listen(3000);
+
+// socket for emit event on changes in db
 const io = require('socket.io')(app.server);
 socketWrapper(io, connectionDb);
 

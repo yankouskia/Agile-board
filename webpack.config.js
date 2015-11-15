@@ -75,6 +75,9 @@ module.exports = {
     },
 
     plugins: [
+        // new webpack.ProvidePlugin({
+        //     'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+        //   }),
         new ExtractTextPlugin('[name].bundle.css'),
         new webpack.DefinePlugin({ "global.GENTLY": false }),
         new webpack.NoErrorsPlugin(),

@@ -2,48 +2,45 @@
 
 import PouchDB from 'pouchdb';
 
-export default class DBConnection {
+class DBConnection {
 	constructor() {
-		this.localDB = new PouchDB('agile');
 		this.remoteDB = new PouchDB('http://localhost:5984/agile');
-
-		this.localDB.sync(this.remoteDB, {
-		  	live: true
-		}).on('complete', function () {
-		  	console.log('dbs replicated')
-		}).on('error', function (err) {
-			console.log('some troubles while replicating', err);
-		});;
 
 		this.remoteDB.info().then(function (info) {
 		  console.log('!!!!!!!!!!!!', info);
 		});
 
-		this.localDB.info().then(function (info) {
-		  console.log('@@@@@@@@@@@@@@@', info);
-		})
-	}
-
-	addTask(task) {
-		task._id = task.name.toLowerCase().replace(/\s/g, '');
-		this.remoteDB.put(task).then(function (response) {
-		 	return response;
-		}).catch(function (err) {
-		 	return error;
+		this.remoteDB.changes({
+			since: 'now',
+			live: true,
+			include_docs: true
+		}).on('change', function(change) {
+			console.log('change', change);
+		}).on('complete', function(info) {
+			console.log('complete', info);
+		}).on('error', function (err) {
+			console.log('err', err);
 		});
 	}
 
-	getTaskById(id) {
-		// var task = null;
-		return this.remoteDB.get(id).then((res)=>{return res});
+	addTask(task) {
+		return this.remoteDB.post(task);
+	}
 
-		// .then(function (doc) {
-		// 	console.log('gettttt', doc);
-		// 	return doc;
-		//   	task = doc;
-		// }).catch(function (err) {
-		//   	console.log(err);
-		// });
-		// return task
+	updateTask(task) {
+		return this.remoteDB.put(task);
+	}
+
+	getTaskById(id) {
+		return this.remoteDB.get(id);
+	}
+
+	getTasks() {
+		return this.remoteDB.allDocs({
+			include_docs: true,
+			attachments: false
+		});
 	}
 }
+
+export default new DBConnection();
