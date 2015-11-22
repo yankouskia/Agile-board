@@ -1,104 +1,37 @@
 'use strict';
 
+//modules
 import angular from 'angular';
-import home from './pages/index.html';
-import about from './pages/about.html';
-import board from './pages/partial/board.html';
-import auth from './pages/auth.html';
-import information from './pages/partial/information.html';
-require('angular-ui-router');
-require('angular-ui-sortable');
+import 'angular-ui-router';
+import 'angular-ui-sortable';
+import 'ng-dialog';
 
+//directives
+import task from 'client/components/task/task';
+import tasksList from 'client/components/tasks-list/tasks-list.drct'
+import helloWorld from 'client/components/main/hello-world';
+import boardHeader from 'client/components/board-header';
+import boardFooter from 'client/components/board-footer';
 
+//factories
+import socketFactory from 'client/factories/socket'
 
-let app = angular.module('app', ['ui.router', 'ui.sortable'])
-	.directive('helloWorld', require('./components/main/hello-world'))
-	.directive('boardHeader', require('./components/board-header'))
-	.directive('boardFooter', require('./components/board-footer'))
-	.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
-	    $locationProvider.html5Mode(true);
-	    $urlRouterProvider.otherwise('/home/board');
+//controllers
+import SortableCtrl from 'client/controllers/SortableController';
 
-	    $stateProvider // move to router module like app.router.js
-			.state('home', {
-				url: '/home',
-				template: home  //should be directives like components in React
-			})
-			.state('about', {
-				url: '/about',
-				template: about
-			})
-			.state('auth', {
-				url: '/auth',
-				template: auth
-			})
-			.state('home.board', {
-				url: '/board',
-				template: board //split into small reausable directives
-			})
-			.state('home.information', {
-				url: '/information',
-				template: information
-			});		
-	})
-	.controller('sortableController', function ($scope) {  // value provider  // remove this shit
-		$scope.tasks = [ // don't use scope. prefer controller as syntax. Why ?
-			[
-				{
-				  	title: 'Control mask',
-				  	description: 'implement mask control'
-				}, {
-				  	title: 'router ui',
-				  	description: 'add view route'
-				}
-			],
-			[
-				{
-				  	title: 'db',
-				  	description: 'install rethink db'
-				}, {
-				  	title: 'Control textbox',
-				  	description: 'implement textbox'
-				}
-			],
-			[
-				{
-				  	title: 'LESS',
-				  	description: 'use less with bootstrap 3'
-				}, {
-				  	title: 'DOCKER',
-				  	description: 'install docker image'
-				}, {
-				  	title: 'dnd',
-				  	description: 'add drag n drop to board'
-				}
-			]
-		];  
-  
-  		$scope.sortingLog = [];
-  
-		function createOptions(name) {
-			var options = {
-				name: name,
-			  	placeholder: 'board__info__container',
-			  	connectWith: '.board__info'
-			};
-			return options;
-		}
+//config
+import config from 'client/config/config';
 
-  		$scope.sortableOptionsList = [createOptions('A'), createOptions('B'), createOptions('C')]; // move to constants or value or service
-   
-		$scope.logModels = function () {
-			$scope.sortingLog = [];
-			for (var i = 0; i < $scope.tasks.length; i++) {
-				var logEntry = $scope.tasks[i].map(function (x) {
-					return x.title;
-				}).join(', ');
-				logEntry = 'container ' + (i+1) + ': ' + logEntry;
-				$scope.sortingLog.push(logEntry);
-			}
-		};
-});
+let app = angular.module('app', ['ui.router', 'ui.sortable', 'ngDialog'])
+	.factory('socket', socketFactory)
+	.directive('tasksList', tasksList)
+	.directive('task', task)
+	.directive('helloWorld', helloWorld)
+	.directive('boardHeader', boardHeader)
+	.directive('boardFooter', boardFooter)
+	.directive('boardColumn', require('client/components/board-column/board-column.drct'))
+	.controller('SortableCtrl', SortableCtrl)
+	.config(config);
 
 angular.element(document).ready(() => {
 	angular.bootstrap(document, [app.name]);	
