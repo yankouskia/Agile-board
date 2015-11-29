@@ -1,6 +1,19 @@
-<div ng-app="sortableApp" ng-controller="SortableCtrl" class="row row-eq-height">
-    <div class="col-xs-3" ng-repeat="column in columns">
-        <board-column column='column'></board-column>
-    </div>
-    <tasks-list columns="columns"></tasks-list>
+<div>
+	<div ng-app="sortableApp" ng-controller="SortableCtrl" class="row row-eq-height col-xs-9">
+	    <div class="col-xs-4" ng-repeat="column in columns">
+	        <board-column column='column'></board-column>
+	    </div>
+	</div>
+	<div class="col-xs-2 col-xs-offset-1 color-default" ng-controller="ModalCtrl">
+	    <button type="button" class="btn btn-warning full-width" ng-click="open()">
+			<a style="color:white">
+	    		Add new
+	    	</a>
+	    </button>
+	    <button type="button" class="btn btn-warning full-width">
+			<a style="color:white" ng-href="/home/closed">
+	    		Closed tasks
+	    	</a>
+	    </button>
+	</div>
 </div>

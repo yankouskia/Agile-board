@@ -34,3 +34,12 @@ exports.update = function *() {
 	this.body = message;
 }
 
+exports.deleteTask = function *() {
+	let task = yield parse(this);
+	yield connectionDb.deleteTask(task);
+	let message = {'ok': false};
+	if(task) {
+		message.ok = true;
+	}
+	this.body = message;
+}

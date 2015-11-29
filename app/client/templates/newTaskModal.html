@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add new story!</h3>
+</div>
+<div class="modal-body">
+    <span class="label label-default">Title</span>
+    <input ng-model="selected.title" class="form-control" type="text" placeholder="Title"/>
+    <span class="label label-primary top-pad">Description</span>
+    <input ng-model="selected.description" type="text" class="form-control" placeholder="Description"/>
+    <span class="label label-success top-pad">Points</span>
+    <input ng-model="selected.points" type="text" class="form-control" placeholder="Points"/>
+    <span class="label label-info top-pad">Story type</span>
+    <input ng-model="selected.storyType" type="text" class="form-control" placeholder="Story Type"/>
+    <span class="label label-warning top-pad">Assignee</span>
+    <input ng-model="selected.asigneee" type="text" class="form-control" placeholder="Asigneee"/>
+    <span class="label label-danger top-pad">Status</span>
+    <input ng-model="selected.status" type="text" class="form-control" placeholder="Status"/>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

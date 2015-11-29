@@ -8,4 +8,5 @@ export default (router) => {
 		.get('/task/getAll/', taskCtrl.getAll)
 		.post('/task/add', taskCtrl.add)
 		.post('/task/update', taskCtrl.update)
+		.post('/task/delete', taskCtrl.deleteTask)
 };
