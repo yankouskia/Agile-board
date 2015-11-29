@@ -1,6 +1,6 @@
 'use strict';
 
-import {DB_CHANGE} from '../../shared/socketEventTypes';
+import {DB_CHANGE} from 'shared/socketEventTypes';
 
 export default (io, db) => {
 	io.on('connection', (socket) => {
@@ -10,6 +10,7 @@ export default (io, db) => {
 			live: true,
 			include_docs: true
 		}).on('change', function(change) {
+			console.log('DB CNAHGE!')
 			socket.emit(DB_CHANGE, change);
 		});
 	});

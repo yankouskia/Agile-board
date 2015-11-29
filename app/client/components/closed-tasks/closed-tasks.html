@@ -1,0 +1,24 @@
+<div class="panel panel-info">
+ 	<div class="panel-heading">Closed stories</div>
+ 	<div class="panel-body">
+		<ul ng-show="ClosedTasksCtrl.closedTasks.length > 0" class="list-group" ng-repeat="task in ClosedTasksCtrl.closedTasks">
+			<li class="list-group-item line-through">
+	    		<span class="badge">Title: {{task.title}}</span>
+				Description: {{task.description}}
+			</li>
+		</ul>
+		<div ng-show="ClosedTasksCtrl.closedTasks.length === 0">
+			<div class="alert alert-danger" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only">Error:</span>
+				There is no closed issues
+			</div>
+		</div>
+		<br/>
+	    <button type="button" class="btn btn-primary full-width">
+			<a style="color:white" ng-href="/home/board">
+	    		Return back to agile board
+	    	</a>
+	    </button>
+	</div>
+</div>

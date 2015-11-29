@@ -2,4 +2,21 @@
 	<p>Priority: {{TaskCtrl.index + 1}}</p>
 	<p>Name: {{TaskCtrl.title}}</p>
 	<p>Description: {{TaskCtrl.description}}</p>
+	<div style="display: flex; width: 100%;">
+		<button type="button" class="btn btn-primary">
+			<a style="color:white" ng-href="/home/{{TaskCtrl.task}}">
+					Details 
+			</a>
+		</button>
+		<button type="button" class="btn btn-danger" ng-click="TaskCtrl.deleteTask(TaskCtrl.task)">
+			<a style="color:white">
+					Delete 
+			</a>
+		</button>
+		<button type="button" class="btn btn-warning" ng-click="TaskCtrl.close(TaskCtrl.task)">
+			<a style="color:white">
+					Close 
+			</a>
+		</button>
+	</div>
 </div>

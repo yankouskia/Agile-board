@@ -4,6 +4,7 @@ export default () => {
 	
 	let TasksListCtrl = function() {
 		this.tasks = ((cols) => {
+			console.log(cols);
 			let tasks = [];
 			cols.forEach((col) => {
 				tasks = tasks.concat(col.tasks);

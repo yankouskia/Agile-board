@@ -6,6 +6,7 @@ export default () => {
 		let {title, tasks, options} = this.column;
 		this.title = title;
 		this.tasks = tasks;
+
 		this.options = options;
 		
 	};

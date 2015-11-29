@@ -13,6 +13,7 @@ export default (socket) => {
             this.greeting = 'Agile board'; 
         },
         link: function($scope) {
+
             $scope.clickMe = async () => {
                 socket.on(DB_CHANGE, async (data) => {
                     console.log('db change!!!!!!!!', data);

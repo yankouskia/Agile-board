@@ -15,13 +15,13 @@ import connectionDb from './db/requests';
 import socketWrapper from './middleware/socketMiddleware';
 
 // server logs on client
-require('node-monkey').start({host: "127.0.0.1", port:"50500"});
+// require('node-monkey').start({host: "127.0.0.1", port:"50500"});
 
 let router = require('koa-router')();
 let app = koa();
 
 
-//server seetings
+//server settings
 let appSettings = compose([
 	favicon(__dirname + '/views/favicon/fav.ico'),
 	hbs.middleware({ viewPath: __dirname + '/views' }),

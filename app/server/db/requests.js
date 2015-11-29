@@ -41,6 +41,10 @@ class DBConnection {
 			attachments: false
 		});
 	}
+
+	deleteTask(task) {
+		return this.remoteDB.remove(task);
+	}
 }
 
 export default new DBConnection();
