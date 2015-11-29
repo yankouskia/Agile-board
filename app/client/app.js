@@ -21,21 +21,25 @@ import socketFactory from 'client/factories/socket'
 
 // services
 import StoryService from 'client/services/StoryService';
+import AuthService from 'client/services/AuthService';
 
 //controllers
 import SortableCtrl from 'client/controllers/SortableController';
 import ModalInstanceCtrl from 'client/controllers/ModalInstanceController';
 import ModalCtrl from 'client/controllers/NewTaskModalController';
+import AuthCtrl from 'client/controllers/AuthCtrl';
 
 //config
 import config from 'client/config/config';
 
 let app = angular.module('app', ['ui.router', 'ui.sortable', uibs])
 	.service('StoryService', StoryService)
+	.service('AuthService', AuthService)
 	.factory('socket', socketFactory)
 	.controller('SortableCtrl', SortableCtrl)
 	.controller('ModalCtrl', ModalCtrl)
 	.controller('ModalInstanceCtrl', ModalInstanceCtrl)
+	.controller('AuthCtrl', AuthCtrl)
 	.directive('backlog', backlog)
 	.directive('closedTasks', closedTasks)
 	.directive('updateTask', updateTask)

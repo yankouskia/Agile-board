@@ -1,20 +1,28 @@
 <board-header></board-header>
-<div class="container">
-	<form class="form-signin" role="form">
+<div class="container" ng-controller="AuthCtrl">
+	<form ng-show="!isOk" class="form-signin" role="form">
 		<h2 class="form-signin-heading">Please sign in</h2>
 
-		<span class="label label-info">Type email</span><br/>
-		<input type="email" class="form-control" placeholder="Email address" required="" autofocus=""><br/>
+		<span class="label label-info">Type login</span><br/>
+		<input type="text" class="form-control" ng-model="authUser.login" placeholder="Login" required="" autofocus=""><br/>
 
 		<span class="label label-info">Type password</span><br/>
-		<input type="password" class="form-control" placeholder="Password" required=""><br/>
-		
+		<input type="password" ng-model="authUser.password" class="form-control" placeholder="Password" required=""><br/>
 
-		<label class="checkbox">
-			<input type="checkbox" value="remember-me"> Remember me
-		</label>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+		<button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="auth()">Sign in</button><br/>
 	</form>
+
+	<div ng-show="incorrectAuth" class="alert alert-danger" role="alert">
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		<span class="sr-only">Error:</span>
+		Not all fields are filled
+	</div>
+
+	<div ng-show="isOk" class="alert alert-info" role="alert">
+		<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+		<span class="sr-only">Error:</span>
+		Hello, {{name}} !!!
+	</div>
 
 </div>
 <board-footer></board-footer>

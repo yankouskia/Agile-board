@@ -13,12 +13,13 @@
    
    <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
     
-      <ul class = "nav navbar-nav">
+      <ul class = "nav navbar-nav" ng-controller="AuthCtrl">
          <li><a href = "/home/information">Information</a></li>
          <li><a href = "/about">About project</a></li>
          <li><a href = "/backlog">Backlog</a></li>
-         <li><a href = "/auth">Log in</a></li>     
-         <li><a href = "/reg">Registration</a></li>               
+         <li ng-show="name === null"><a href = "/auth">Log in</a></li>     
+         <li ng-show="name === null"><a href = "/reg">Registration</a></li> 
+         <li ng-show="name !== null"><a href = "#">Hello, {{name}}!</a></li>             
       </ul>
    </div>       
 </nav>

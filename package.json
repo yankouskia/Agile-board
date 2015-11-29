@@ -38,6 +38,7 @@
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
     "jquery": "^2.1.4",
+    "js-base64": "^2.1.9",
     "json-loader": "^0.5.3",
     "koa": "^1.0.0",
     "koa-compose": "^2.3.0",

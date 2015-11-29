@@ -131,9 +131,9 @@ export default class StoryService {
             .then(fillTask);
 	}
 
-	getStoryById = async () => {
+	getStoryById = async (id) => {
 		var requestTemplate = _.template('/task/get/<%= id %>');
-        var ans = await fetch(requestTemplate({id: 'layoutbootstrap'}))
+        var ans = await fetch(requestTemplate({id: id}))
             .then(function(response) {
                 if (response.status >= 400) {
                     throw new Error('Bad response from server');
