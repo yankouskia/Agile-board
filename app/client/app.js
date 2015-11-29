@@ -14,6 +14,7 @@ import boardHeader from 'client/components/board-header';
 import boardFooter from 'client/components/board-footer';
 import updateTask from 'client/components/update-task';
 import closedTasks from 'client/components/closed-tasks';
+import backlog from 'client/components/backlog';
 
 //factories
 import socketFactory from 'client/factories/socket'
@@ -35,6 +36,7 @@ let app = angular.module('app', ['ui.router', 'ui.sortable', uibs])
 	.controller('SortableCtrl', SortableCtrl)
 	.controller('ModalCtrl', ModalCtrl)
 	.controller('ModalInstanceCtrl', ModalInstanceCtrl)
+	.directive('backlog', backlog)
 	.directive('closedTasks', closedTasks)
 	.directive('updateTask', updateTask)
 	.directive('tasksList', tasksList)

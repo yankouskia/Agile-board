@@ -20,6 +20,7 @@ export default class StoryService {
         this.previousItems = null
         this.currentItems = null;
         this.closedItems = [];
+        this.backlog = [];
         this.currentColumnType = null;
 
         this.columns = [
@@ -95,6 +96,7 @@ export default class StoryService {
         let fillTask = (newTasks) => {
             // use lodashthisk.merge([], []);
             this.closedItems.splice(0, this.closedItems.length);
+            this.backlog.splice(0, this.backlog.length);
             this.tasks.splice(0, this.tasks.length);
             newTasks.forEach((t) => {
                 this.tasks.push(t);
@@ -110,8 +112,10 @@ export default class StoryService {
                     this.columns[1].tasks.push(task);             
                 } else if(task.status === 'done') {
                     this.columns[2].tasks.push(task);             
-                } else {
+                } else if(task.status ==='closed') {
                     this.closedItems.push(task);
+                } else if(task.status === 'backlog') {
+                    this.backlog.push(task);
                 }
             });
             if(cb) {

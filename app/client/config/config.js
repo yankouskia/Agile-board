@@ -8,6 +8,7 @@ import information from 'client/pages/partial/information.html';
 import item from 'client/pages/item.html';
 import closedTasks from 'client/pages/partial/closedTasks.html';
 import reg from 'client/pages/reg.html';
+import backlog from 'client/pages/backlog.html';
 
 export default function($urlRouterProvider, $stateProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);
@@ -21,6 +22,10 @@ export default function($urlRouterProvider, $stateProvider, $locationProvider) {
 		.state('about', {
 			url: '/about',
 			template: about
+		})
+		.state('backlog', {
+			url: '/backlog',
+			template: backlog
 		})
 		.state('auth', {
 			url: '/auth',
