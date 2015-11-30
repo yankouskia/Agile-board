@@ -21,6 +21,29 @@ let router = require('koa-router')();
 let app = koa();
 
 
+app.proxy = true;
+
+// sessions
+const convert = require('koa-convert');
+const session = require('koa-generic-session');
+app.keys = ['your-session-secret'];
+app.use(convert(session()));
+
+// body parser
+const bodyParser = require('koa-bodyparser');
+app.use(bodyParser());
+
+// authentication
+require('./auth');
+const passport = require('koa-passport');
+app.use(passport.initialize());
+app.use(passport.session());
+
+// routes
+const fs = require('fs');
+
+
+
 //server settings
 let appSettings = compose([
 	favicon(__dirname + '/views/favicon/fav.ico'),
@@ -37,9 +60,11 @@ app.use(appSettings);
 routerHandler(router);
 
 // first render
-router.get('*', function *(next){
+router.get('/', function *(next){
 	yield this.render('index');
 })
+
+
 
 
 app.server = http.createServer(app.callback()).listen(3000);
