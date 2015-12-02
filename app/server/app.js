@@ -36,10 +36,12 @@ app.use(appSettings);
 // REST
 routerHandler(router);
 
+var auth = false;
+
 // first render
 router.get('*', function *(next){
 	yield this.render('index');
-})
+});
 
 
 app.server = http.createServer(app.callback()).listen(3000);
