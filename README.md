@@ -32,9 +32,6 @@
 * eslint
 * opener
 
-##Server:
-* Node 4
-
 ###Run project
 #### prod 
 ```
@@ -45,4 +42,6 @@
   npm run build
   npm run serve
 ```
+
+####Node.js 4, npm 2
 
