@@ -1,6 +1,6 @@
-#Agile-board
+# Agile-board
 
-##Client:
+## Client:
 * Angular
 * socket.io-client
 * bootstrap 3
@@ -9,30 +9,30 @@
 * jquery-ui
 * angular-ui-sortable
 
-##Server:
+## Server:
 * koa 1.0
 
-##Bundler
+## Bundler
 * Webpack
 
-##Database
+## Database
 * pouchDB
 
-##Auth
+## Auth
 * koa-passport
 * passport-facebook
 * passport-google-auth
 * passport-local
 * passport-twitter
 
-##Other
+## Other
 * babel 5
 * lodash 3
 * socket.io
 * eslint
 * opener
 
-###Run project
+### Run project
 #### prod 
 ```
   npm start
@@ -43,5 +43,5 @@
   npm run serve
 ```
 
-####Node.js 4, npm 2
+#### Node.js 4, npm 2
 
